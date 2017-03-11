@@ -3,14 +3,17 @@
 package com.superapps.ravi.localshop;
 
         import android.app.ListActivity;
+        import android.content.Intent;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.util.SparseBooleanArray;
         import android.view.View;
+        import android.widget.AdapterView;
         import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.CheckBox;
         import android.widget.EditText;
+        import android.widget.ListView;
         import android.widget.TextView;
         import android.widget.Toast;
 
@@ -27,6 +30,8 @@ public class ShopOwnerListing extends ListActivity
     TextView storeKeeper;
     EditText editName,edit;
     String name;
+
+
     private class ViewHolder {
         CheckBox ck1;
     }
@@ -35,10 +40,12 @@ public class ShopOwnerListing extends ListActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_owner_listing);
 
+
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
 
         /** Reference to the add button of the layout main.xml */
         Button btnAdd = (Button) findViewById(R.id.btnAdd);
@@ -53,6 +60,10 @@ public class ShopOwnerListing extends ListActivity
         storeKeeper = (TextView)findViewById(R.id.name);
         name = editName.getText().toString();
         edit = (EditText) findViewById(R.id.txtItem);
+
+        /** Setting the adapter to the ListView */
+        setListAdapter(adapter);
+        //list.setAdapter(adapter);
 
         /** Setting the event listener for the add button */
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -86,8 +97,11 @@ public class ShopOwnerListing extends ListActivity
                 adapter.notifyDataSetChanged();
             }
         });
+    }
 
-        /** Setting the adapter to the ListView */
-        setListAdapter(adapter);
+    public void makeBtnDelVisible(View view) {
+        Button btnDel = (Button) findViewById(R.id.btnDel);
+        btnDel.setVisibility(View.VISIBLE);
+        // Do something in response to button
     }
 }

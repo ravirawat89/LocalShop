@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     tools:context="com.superapps.ravi.localshop.MainActivity">
 
+    <LinearLayout
+        android:id="@+id/lay2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/nameTxt"
+        android:orientation="vertical" >
+
+
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
@@ -57,41 +65,46 @@
         android:gravity="center_horizontal"
         />
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id">
-    </com.google.android.gms.ads.AdView>
-
-    <Button
-        android:id="@+id/btnDel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/btnSave"
-        android:text="Delete Item"
-        android:visibility="invisible"/>
-
-    <Button
-        android:id="@id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@id/adView"
-        android:text="Save"/>
-
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:choiceMode="multipleChoice"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/lay2">
     </ListView>
+
+
+        <Button
+            android:id="@+id/btnDel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/btnSave"
+            android:text="Delete Item"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/adView"
+            android:text="Save"/>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id">
+        </com.google.android.gms.ads.AdView>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

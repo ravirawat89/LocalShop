@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="btnSave" type="id">btnSave</item>
+    <item name="listView1" type="id" />
+    <item name="list" type="id" />
 </resources>
