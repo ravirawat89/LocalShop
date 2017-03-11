@@ -30,6 +30,7 @@ public class ShopOwnerListing extends ListActivity
     TextView storeKeeper;
     EditText editName,edit;
     String name;
+    Button btnDel;
 
 
     private class ViewHolder {
@@ -51,7 +52,7 @@ public class ShopOwnerListing extends ListActivity
         Button btnAdd = (Button) findViewById(R.id.btnAdd);
 
         /** Reference to the delete button of the layout main.xml */
-        Button btnDel = (Button) findViewById(R.id.btnDel);
+        btnDel = (Button) findViewById(R.id.btnDel);
 
         /** Defining the ArrayAdapter to set items to ListView */
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, list);
@@ -81,6 +82,7 @@ public class ShopOwnerListing extends ListActivity
             }
         });
         /** Setting the event listener for the delete button */
+
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,9 +101,18 @@ public class ShopOwnerListing extends ListActivity
         });
     }
 
-    public void makeBtnDelVisible(View view) {
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+         if(getListView().getCount()!=0)
+             btnDel.setVisibility(View.VISIBLE);
+        else
+             btnDel.setVisibility(View.INVISIBLE);
+    }
+
+   /* public void makeBtnDelVisible(View view) {
         Button btnDel = (Button) findViewById(R.id.btnDel);
         btnDel.setVisibility(View.VISIBLE);
         // Do something in response to button
-    }
+    }*/
 }
