@@ -72,8 +72,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/adView"
-        android:text="Delete Item" />
+        android:layout_above="@+id/btnSave"
+        android:text="Delete Item"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/adView"
+        android:text="Save"/>
 
     <ListView
         android:id="@android:id/list"

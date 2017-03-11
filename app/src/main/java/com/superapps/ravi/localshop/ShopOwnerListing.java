@@ -41,7 +41,7 @@ public class ShopOwnerListing extends ListActivity
         mAdView.loadAd(adRequest);
 
         /** Reference to the add button of the layout main.xml */
-        Button btn = (Button) findViewById(R.id.btnAdd);
+        Button btnAdd = (Button) findViewById(R.id.btnAdd);
 
         /** Reference to the delete button of the layout main.xml */
         Button btnDel = (Button) findViewById(R.id.btnDel);
@@ -55,7 +55,7 @@ public class ShopOwnerListing extends ListActivity
         edit = (EditText) findViewById(R.id.txtItem);
 
         /** Setting the event listener for the add button */
-        btn.setOnClickListener(new View.OnClickListener() {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!(editName.getText().toString().equals("")))
