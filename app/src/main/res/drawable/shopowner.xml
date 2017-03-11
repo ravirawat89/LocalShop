@@ -4,5 +4,5 @@
         android:drawable="@drawable/shopowner_pressed" /> <!-- pressed -->
     <item android:state_focused="true"
         android:drawable="@drawable/shopowner_normal" /> <!-- focused -->
-    <item android:drawable="@drawable/shopowner_normal" /> <!-- default -->
+    <item android:drawable="@drawable/shopowner_normal" /> <!-- default-->
 </selector>
