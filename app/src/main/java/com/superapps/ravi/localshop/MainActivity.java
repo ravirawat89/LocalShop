@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openShopOwnerListing(View view) {
-        Intent intent = new Intent(this, ShopOwnerListing.class);
+        Intent intent = new Intent(this, ShopOwnerListingGDrive.class);
         startActivity(intent);
         // Do something in response to button
     }

@@ -3,13 +3,17 @@
 package com.superapps.ravi.localshop;
 
 import android.app.ListActivity;
+import android.content.Intent;
+import android.content.IntentSender;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +23,8 @@ import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
+import static android.content.ContentValues.TAG;
+
 public class ShopOwnerListingGDrive extends ListActivity
 {
     ArrayList list = new ArrayList();
@@ -26,6 +32,7 @@ public class ShopOwnerListingGDrive extends ListActivity
     TextView storeKeeper;
     EditText editName,edit;
     String name;
+    Button btnDel;
 
 
     private class ViewHolder {
@@ -49,11 +56,15 @@ public class ShopOwnerListingGDrive extends ListActivity
         /** Reference to the delete button of the layout main.xml */
         Button btnDel = (Button) findViewById(R.id.btnDel);
 
+        /** Reference to the save button of the layout main.xml */
+        Button btnSave = (Button) findViewById(R.id.btnDel);
+
+
         /** Defining the ArrayAdapter to set items to ListView */
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, list);
 
         editName = (EditText) findViewById(R.id.nameTxt);
-        storeKeeper = (TextView)findViewById(R.id.name);
+        storeKeeper = (TextView) findViewById(R.id.name);
         name = editName.getText().toString();
         edit = (EditText) findViewById(R.id.txtItem);
 
@@ -65,14 +76,12 @@ public class ShopOwnerListingGDrive extends ListActivity
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!(editName.getText().toString().equals("")))
-                {
+                if (!(editName.getText().toString().equals(""))) {
                     storeKeeper.setText(name);
                     list.add(edit.getText().toString());
                     edit.setText("");
                     adapter.notifyDataSetChanged();
-                }
-                else
+                } else
                     Toast.makeText(getApplicationContext(), "Enter Store name", Toast.LENGTH_LONG);
             }
         });
@@ -84,8 +93,8 @@ public class ShopOwnerListingGDrive extends ListActivity
                 SparseBooleanArray checkedItemPositions = getListView().getCheckedItemPositions();
                 int itemCount = getListView().getCount();
 
-                for(int i=itemCount-1; i >= 0; i--){
-                    if(checkedItemPositions.get(i)){
+                for (int i = itemCount - 1; i >= 0; i--) {
+                    if (checkedItemPositions.get(i)) {
                         adapter.remove(list.get(i));
                     }
                 }
@@ -95,9 +104,28 @@ public class ShopOwnerListingGDrive extends ListActivity
         });
     }
 
-    public void makeBtnDelVisible(View view) {
-        Button btnDel = (Button) findViewById(R.id.btnDel);
-        btnDel.setVisibility(View.VISIBLE);
-        // Do something in response to button
+    @Override
+    protected void onListItemClick (ListView l, View v,int position, long id){
+        super.onListItemClick(l, v, position, id);
+        if (getListView().getCheckedItemCount() != 0) {
+            btnDel.setVisibility(View.VISIBLE);
+        } else {
+            btnDel.setVisibility(View.INVISIBLE);
+        }
     }
+
+    public void CreateFileOnGoogleDrive(View view) {
+        Intent intent = new Intent(this, CreateFileActivity.class);
+        startActivity(intent);
+    }
+
+    /*public void sendMessage(View view) {
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        EditText editText = (EditText) findViewById(R.id.edit_message);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+        // Do something in response to button
+    }*/
+
 }

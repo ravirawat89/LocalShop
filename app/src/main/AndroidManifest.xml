@@ -28,6 +28,9 @@
         </activity>
         <activity android:name=".ModeSelectActivity"></activity>
         <activity android:name=".ShopOwnerListing"></activity>
+        <activity android:name=".ShopOwnerListingGDrive"></activity>
+        <activity android:name=".BaseDemoActivity"></activity>
+        <activity android:name=".CreateFileActivity"></activity>
     </application>
 
 </manifest>

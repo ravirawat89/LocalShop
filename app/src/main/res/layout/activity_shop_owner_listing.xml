@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.superapps.ravi.localshop.MainActivity">
+    tools:context="com.superapps.ravi.localshop.ShopOwnerListingGDrive">
 
     <LinearLayout
         android:id="@+id/lay2"
@@ -92,7 +92,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@id/adView"
-            android:text="Save"/>
+            android:text="Save"
+            android:onClick="CreateFileOnGoogleDrive"/>
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"

@@ -52,7 +52,11 @@ public class ShopOwnerListing extends ListActivity
         Button btnAdd = (Button) findViewById(R.id.btnAdd);
 
         /** Reference to the delete button of the layout main.xml */
-        btnDel = (Button) findViewById(R.id.btnDel);
+        Button btnDel = (Button) findViewById(R.id.btnDel);
+
+        /** Reference to the save button of the layout main.xml */
+        Button btnSave = (Button) findViewById(R.id.btnDel);
+
 
         /** Defining the ArrayAdapter to set items to ListView */
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, list);
@@ -104,10 +108,12 @@ public class ShopOwnerListing extends ListActivity
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-         if(getListView().getCount()!=0)
+         if(getListView().getCheckedItemCount()!=0) {
              btnDel.setVisibility(View.VISIBLE);
-        else
+         }
+         else {
              btnDel.setVisibility(View.INVISIBLE);
+         }
     }
 
    /* public void makeBtnDelVisible(View view) {
