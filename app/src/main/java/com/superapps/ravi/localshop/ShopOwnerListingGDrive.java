@@ -32,7 +32,7 @@ public class ShopOwnerListingGDrive extends ListActivity
     TextView storeKeeper;
     EditText editName,edit;
     String name;
-    Button btnDel;
+    Button btnDel,btnAdd;
 
 
     private class ViewHolder {
@@ -51,10 +51,10 @@ public class ShopOwnerListingGDrive extends ListActivity
 
 
         /** Reference to the add button of the layout main.xml */
-        Button btnAdd = (Button) findViewById(R.id.btnAdd);
+        btnAdd = (Button) findViewById(R.id.btnAdd);
 
         /** Reference to the delete button of the layout main.xml */
-        Button btnDel = (Button) findViewById(R.id.btnDel);
+        btnDel = (Button) findViewById(R.id.btnDel);
 
         /** Reference to the save button of the layout main.xml */
         Button btnSave = (Button) findViewById(R.id.btnDel);
@@ -105,13 +105,14 @@ public class ShopOwnerListingGDrive extends ListActivity
     }
 
     @Override
-    protected void onListItemClick (ListView l, View v,int position, long id){
+    protected void onListItemClick (ListView l, View v,int position, long id)
+    {
         super.onListItemClick(l, v, position, id);
-        if (getListView().getCheckedItemCount() != 0) {
+        if (getListView().getCheckedItemCount()!= 0) {
             btnDel.setVisibility(View.VISIBLE);
-        } else {
-            btnDel.setVisibility(View.INVISIBLE);
-        }
+      } else {
+           btnDel.setVisibility(View.INVISIBLE);
+       }
     }
 
     public void CreateFileOnGoogleDrive(View view) {
