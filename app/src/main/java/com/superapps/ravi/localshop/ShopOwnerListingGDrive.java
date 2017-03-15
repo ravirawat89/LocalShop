@@ -65,7 +65,6 @@ public class ShopOwnerListingGDrive extends ListActivity
 
         editName = (EditText) findViewById(R.id.nameTxt);
         storeKeeper = (TextView) findViewById(R.id.name);
-        name = editName.getText().toString();
         edit = (EditText) findViewById(R.id.txtItem);
 
         /** Setting the adapter to the ListView */
@@ -77,7 +76,7 @@ public class ShopOwnerListingGDrive extends ListActivity
             @Override
             public void onClick(View v) {
                 if (!(editName.getText().toString().equals(""))) {
-                    storeKeeper.setText(name);
+                    storeKeeper.setText(editName.getText().toString());
                     list.add(edit.getText().toString());
                     edit.setText("");
                     adapter.notifyDataSetChanged();
