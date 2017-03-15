@@ -14,6 +14,7 @@
 
 package com.superapps.ravi.localshop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -58,11 +59,13 @@ public class CreateFileActivity extends BaseDemoActivity {
             new Thread() {
                 @Override
                 public void run() {
-                    // write content to DriveContents
+                    Intent intent = getIntent();
+                   String message = intent.getStringExtra(ShopOwnerListingGDrive.EXTRA_MESSAGE);
+                    //write content to DriveContents
                     OutputStream outputStream = driveContents.getOutputStream();
                     Writer writer = new OutputStreamWriter(outputStream);
                     try {
-                        writer.write("Write the list of the items being sold by the seller.");
+                        writer.write(message+'\n');
                         writer.write("or Write the id of the seller the customer wants to buy a list of items the customer wants to buy from the seller.");
                         writer.close();
                     } catch (IOException e) {

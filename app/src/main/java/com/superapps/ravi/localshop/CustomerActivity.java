@@ -36,6 +36,7 @@ public class CustomerActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+        fab.setEnabled(false);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

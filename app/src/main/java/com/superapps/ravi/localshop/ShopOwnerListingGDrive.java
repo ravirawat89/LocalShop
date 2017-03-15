@@ -6,6 +6,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
@@ -27,11 +28,13 @@ import static android.content.ContentValues.TAG;
 
 public class ShopOwnerListingGDrive extends ListActivity
 {
+    public final static String EXTRA_MESSAGE = "com.superapps.ravi.localshop.MESSAGE";
+
     ArrayList list = new ArrayList();
     ArrayAdapter adapter;
     TextView storeKeeper;
     EditText editName,edit;
-    String name;
+    String name,message;
     Button btnDel,btnAdd;
 
 
@@ -115,17 +118,18 @@ public class ShopOwnerListingGDrive extends ListActivity
     }
 
     public void CreateFileOnGoogleDrive(View view) {
+        // Converting ArrayList to String in Java using advanced for-each loop
+        String joined = TextUtils.join(", ", list);
+        message = "Shop: "+editName.getText().toString()+'\n'+joined;
+        showMessage("Items saved...");
         Intent intent = new Intent(this, CreateFileActivity.class);
-        startActivity(intent);
-    }
-
-    /*public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.edit_message);
-        String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
-        // Do something in response to button
-    }*/
 
+    }
+
+
+    public void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
 }
