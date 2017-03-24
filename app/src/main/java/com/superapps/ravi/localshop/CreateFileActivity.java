@@ -15,6 +15,7 @@
 package com.superapps.ravi.localshop;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -36,6 +37,7 @@ import java.io.Writer;
 public class CreateFileActivity extends BaseDemoActivity {
 
     private static final String TAG = "CreateFileActivity";
+    private SharedPreferences IDPrefs;
 
     @Override
     public void onConnected(Bundle connectionHint) {
@@ -95,6 +97,11 @@ public class CreateFileActivity extends BaseDemoActivity {
                 return;
             }
             showMessage("Created a file with content: " + result.getDriveFile().getDriveId());
+//*****************************************Save GDrive ID to file********************************************************
+            SharedPreferences.Editor editor = getSharedPreferences("GDrive ID", MODE_PRIVATE).edit();
+            editor.putString("ShopOwner ID",result.getDriveFile().getDriveId().toString() );
+            //editor.commit();
+            editor.apply();
         }
     };
 

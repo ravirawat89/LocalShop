@@ -38,6 +38,10 @@
         <activity
             android:name=".ShopOwnerActivity"
             android:label="@string/title_activity_shop_owner"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GenerateQRCodeActivity"
+            android:label="@string/title_activity_generate_qrcode"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
