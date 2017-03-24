@@ -34,6 +34,10 @@
         <activity
             android:name=".CustomerActivity"
             android:label="@string/title_activity_customer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ShopOwnerActivity"
+            android:label="@string/title_activity_shop_owner"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

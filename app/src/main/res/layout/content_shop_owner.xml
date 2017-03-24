@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.superapps.ravi.localshop.CustomerActivity"
-    tools:showIn="@layout/app_bar_customer">
+    tools:context="com.superapps.ravi.localshop.ShopOwnerActivity"
+    tools:showIn="@layout/app_bar_shop_owner">
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"

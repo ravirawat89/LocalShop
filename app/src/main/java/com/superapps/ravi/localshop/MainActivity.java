@@ -18,7 +18,6 @@ import com.google.android.gms.ads.MobileAds;
 public class MainActivity extends AppCompatActivity
 {
 
-    public static String EXTRA_MESSAGE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +32,8 @@ public class MainActivity extends AppCompatActivity
         showMessage("The app is running on a phone with API level " + Build.VERSION.SDK_INT);
     }
 
-    public void openShopOwnerListing(View view) {
-        Intent intent = new Intent(this, ShopOwnerListingGDrive.class);
+    public void openShopOwnerActivity(View view) {
+        Intent intent = new Intent(this, ShopOwnerActivity.class); //Intent intent = new Intent(this, ShopOwnerListingGDrive.class);
         startActivity(intent);
         // Do something in response to button
     }
